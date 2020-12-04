@@ -26,8 +26,11 @@ services:
           SERVICE_NAME: mysql
         volumes:
           - ./docker-compose/mysql:/docker-entrypoint-initdb.d
+          - ./db:/var/lib/mysql
         networks:
           - next_teste
+        ports:
+        - 3316:3306
 
       nginx:
         image: nginx:1.17-alpine

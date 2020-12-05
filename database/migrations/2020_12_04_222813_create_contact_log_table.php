@@ -13,8 +13,13 @@ class CreateContactLogTable extends Migration
      */
     public function up()
     {
-        Schema::create('contact_log', function (Blueprint $table) {
+        Schema::create('contact_logs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
+            $table->longText('message');
+            $table->string('file_path');
             $table->timestamps();
         });
     }

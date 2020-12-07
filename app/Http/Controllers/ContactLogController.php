@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ContactLog;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ContactLogController extends Controller
 {
@@ -66,16 +67,25 @@ class ContactLogController extends Controller
         }
     }
 
+    public function getCreatePage()
+    {
+        return view('contact.store');
+    }
+
     public function store(Request $request)
     {
         try {
-            $request->validate([
+            $validator = Validator::make($request->all(), [
                 'name' => 'required|min:3|max:255',
                 'email' => 'required|email:dns|max:255',
-                'phone' => 'required|numeric',
+                'phone' => 'required|numeric|min:9|max:11',
                 'message' => 'required',
-                'file' => 'required|file|mimes:doc,docx,odt,pdf|max:25000'
+                'file' => 'required|file|mimes:doc,docx,odt,pdf|max:25600'
             ]);
+
+            if ($validator->fails()) {
+                return $this->sendErrorResponse('Campos inválidos', ['errors' => $validator->errors()], 422);
+            }
 
             $newContactLog = $this->model;
             $newContactLog->name = $request->name;

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ContactLogController::class, 'index'])->name('index');
 Route::get('/all', [ContactLogController::class, 'all'])->name('all');
+Route::get('/create', [ContactLogController::class, 'getCreatePage'])->name('create');
 Route::post('/', [ContactLogController::class, 'store'])->name('store');
 Route::get('/{id}', [ContactLogController::class, 'show'])->name('show');
 Route::delete('/{id}', [ContactLogController::class, 'destroy'])->name('destroy');

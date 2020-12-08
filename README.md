@@ -6,13 +6,13 @@
 
 ### Configurando o ambiente
 
-Primeiro ter nosso proprio arquivo .env:
+Primeiro ter nosso próprio arquivo .env:
 
 ```bash
 $ cp .env.example .env
 ```
 
-Em seguida devemos aleterar as configuraćões de banco de dados, para isso abra o arquivo .env e altere as credenciais:
+Em seguida devemos aleterar as configurações de banco de dados, para isso abra o arquivo .env e altere as credenciais:
 
 ```dotenv
 DB_CONNECTION=mysql
@@ -29,13 +29,13 @@ Em seguida é necessário fazer o build do arquivo ```docker-compose.yml```
 $ docker-compose build
 ```
 
-Depois podemos inicializar os containers em modo daemon
+Depois podemos inicializar os containers em modo daemon:
 
 ```bash
 $ docker-compose up -d
 ```
 
-Após os containers terem sidos inicializados iremos instalar nossa aplicaćão:
+Após os containers terem sidos inicializados iremos instalar nossa aplicação:
 
 ```bash
 $ docker-compose exec app composer install
@@ -56,16 +56,16 @@ $ docker-compose exec app php artisan migrate
 Pronto, nosso ambiente back-end ja esta configurado! Agora vamos para o front-end.
 
 
-Com a versão 6.14.8 do npm instalaremos nossas dependencias:
+Com a versão 6.14.8 do npm instalaremos nossas dependências:
 
 ```bash
 $ npm install
 ```
 
-Depois de nossas dependencias terem sido devidamente instaladas, vamos gerar nossas views:
+Depois de nossas dependências terem sido devidamente instaladas, vamos gerar nossas views:
 
 ```bash
 $ npm run prod
 ```
 
-E pronto, ja podemos acessar nossa aplicaćão pelo link http://localhost:8000!
+E pronto, ja podemos acessar nossa aplicação pelo link http://localhost:8000!

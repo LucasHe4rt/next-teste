@@ -78,7 +78,7 @@ class ContactLogController extends Controller
             $validator = Validator::make($request->all(), [
                 'name' => 'required|min:3|max:255',
                 'email' => 'required|email:dns|max:255',
-                'phone' => 'required|numeric|min:9|max:11',
+                'phone' => 'required|numeric|min:9',
                 'message' => 'required',
                 'file' => 'required|file|mimes:doc,docx,odt,pdf|max:25600'
             ]);

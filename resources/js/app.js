@@ -45,6 +45,7 @@ const configVeeValidate = {
 Vue.use(VeeValidate, configVeeValidate);
 
 Vue.component('form-component', require('./components/FormComponent').default);
+Vue.component('list-component', require('./components/ListComponent').default);
 
 const app = new Vue({
     el: '#app'

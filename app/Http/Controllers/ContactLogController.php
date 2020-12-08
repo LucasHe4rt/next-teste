@@ -18,7 +18,7 @@ class ContactLogController extends Controller
 
     public function index()
     {
-        // return view();
+         return view('contact.index');
     }
 
     public function all()
